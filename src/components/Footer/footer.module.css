@@ -1,0 +1,26 @@
+.footer {
+    height: 90vh;
+    position: relative;
+    bottom: 0;
+    padding: 20px;
+    background-image: url("/public/footer_bg.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    .iconContainer {
+        height: 50px;
+        width: 50px;
+    }
+    
+    svg {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.footerTextContainer, .footerContactContainer, .footerOpeningContainer, .footerAddressContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+

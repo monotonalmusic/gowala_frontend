@@ -1,0 +1,25 @@
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.productTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.productPrice {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #6d9f31;
+}

@@ -1,0 +1,31 @@
+.staffCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.staffImage {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.staffTextContainer {
+    bottom: 0;
+    left: 15;
+    background-color: #fff;
+    position: absolute;
+    width: 80%;
+    text-align: center;
+}
