@@ -23,9 +23,10 @@ const ShopPage = () => {
             {sortAlphabetically ? "Ingen sortering" : "A-Z"}
           </button>
         </div>
+        <Products sortAlphabetically={sortAlphabetically} />
       </div>
 
-      <Products sortAlphabetically={sortAlphabetically} />
+      
     </div>
   );
 };

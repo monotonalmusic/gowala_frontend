@@ -1,0 +1,16 @@
+.infoContainer {
+    min-height: 60vh;
+    border: 2px solid black;
+    margin: 20px;
+}
+
+.infoImageContainer {
+    height: 20vh;
+    width: 100%;
+}
+
+.infoImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

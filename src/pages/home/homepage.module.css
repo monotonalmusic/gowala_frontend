@@ -1,3 +1,7 @@
 section {
-    min-height: 100vh;
+    min-height: 50vh;
+}
+
+.heroSlider {
+    margin-top: 5vh;
 }

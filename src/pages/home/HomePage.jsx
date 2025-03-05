@@ -5,6 +5,7 @@ import Cards from '../../components/Cards/Cards';
 import Products from '../../components/Products/Products';
 import Staff from '../../components/Staff/Staff';
 import Newsletter from '../../components/Newsletter/Newsletter';
+import Slider from '../../components/Slider/Slider';
 
 const HomePage = () => {
 
@@ -15,6 +16,7 @@ const HomePage = () => {
         <div>
             <div className={styles.frontContainer}>
                 <section className={styles.heroSlider}>
+                    <Slider></Slider>
                 </section>
                 <section className={styles.frontCards}>
                     <Cards></Cards>
