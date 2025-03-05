@@ -11,6 +11,7 @@ import ShopPage from "./pages/shop/ShopPage";
 // Components
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
+import BackOffice from "./pages/backoffice/BackOffice";
 
 
 // Application
@@ -43,6 +44,10 @@ const App = () => {
             {
               path: "/shop",
               element : <ShopPage></ShopPage>
+            },
+            {
+              path: "/backoffice",
+              element : <BackOffice></BackOffice>
             },
             {
               path: "*",

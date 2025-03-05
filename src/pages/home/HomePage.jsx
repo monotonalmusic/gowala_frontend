@@ -11,12 +11,26 @@ const HomePage = () => {
 
     const { local } = useAppContext();
 
+    const slidesHeroData = [
+        { title: "Gowala Farms", image: "/headerslider/01.jpg" },
+        { title: "Fresh Dairy", image: "/headerslider/02.jpg" },
+        { title: "Organic Produce", image: "/headerslider/03.jpg" },
+        { title: "Quality Assurance", image: "/headerslider/04.jpg" },
+      ];
+
+      const slidesSponsorData = [
+        {  image: "/sponsors/01.png" },
+        {  image: "/sponsors/02.png" },
+        {  image: "/sponsors/03.png" },
+        {  image: "/sponsors/04.png" },
+      ];
+
 
     return (
         <div>
             <div className={styles.frontContainer}>
                 <section className={styles.heroSlider}>
-                    <Slider></Slider>
+                    <Slider slides={slidesHeroData}></Slider>
                 </section>
                 <section className={styles.frontCards}>
                     <Cards></Cards>
@@ -31,7 +45,12 @@ const HomePage = () => {
                 <section className={styles.frontNewsletter}>
                     <Newsletter></Newsletter>
                 </section>
-                <section className={styles.frontAwards}></section>
+                <section className={styles.frontAwards}>
+                    <h2 className={styles.title}>Our Sponsors</h2>
+                    <div className={styles.sponsorSlider}>
+                        <Slider slides={slidesSponsorData}></Slider>
+                    </div>
+                </section>
                
             </div>
         </div>

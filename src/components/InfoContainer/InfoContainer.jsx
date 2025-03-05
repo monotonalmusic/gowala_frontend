@@ -1,5 +1,5 @@
 import styles from "./infocontainer.module.css";
-import useFetch from "../../hooks/useFetch";
+
 
 const InfoContainer = ({ title, children, img }) => {
 

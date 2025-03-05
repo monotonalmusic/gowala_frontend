@@ -1,0 +1,30 @@
+/* Checklist.module.css */
+.checklist {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .checklistItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .checkIcon {
+    width: 24px;
+    height: 24px;
+    background-color: #6b8e23; /* Greenish color */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  
+  .checkIcon::before {
+    content: "✔"; /* Unicode checkmark */
+    font-size: 16px;
+  }
+  

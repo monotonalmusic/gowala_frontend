@@ -13,7 +13,9 @@ const Navigation = () => {
   return (
     <div className={styles.navigation}>
       <div className={styles.navLeft}>
-        <img src="/logo.png" alt="" />
+          <Link to={"/"}>
+            <img src="/logo.png" alt="" />
+          </Link>
       </div>
       <div className={styles.navRight}>
         <div onClick={toggleNavigation}>{icons.FaBars}</div>
