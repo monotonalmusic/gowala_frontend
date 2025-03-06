@@ -2,7 +2,7 @@ import { useBasket } from "../../context/AppContext";
 import styles from "./basketitem.module.css";
 
 const BasketItem = ({ item }) => {
-  const { basket, removeFromBasket, incrementBasket, decrementBasket } =
+  const { removeFromBasket, incrementBasket, decrementBasket } =
     useBasket();
 
   return (
@@ -31,7 +31,7 @@ const BasketItem = ({ item }) => {
         <span className={styles.quantity}>{item.quantity}</span>
         <button
           className={styles.quantityButton}
-          onClick={() => decrementBasket(item._id)}
+          onClick={() => incrementBasket(item._id)}
         >
           +
         </button>

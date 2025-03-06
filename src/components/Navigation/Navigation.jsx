@@ -2,9 +2,20 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./navigation.module.css";
 import { useState } from "react";
 import { icons } from "../../services/icons";
+import { useBasket } from "../../context/AppContext";
 
 const Navigation = () => {
+
+  const { basket } = useBasket();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  //.map extracts ID's
+  //new Set removes duplicates
+  //.size counts
+
+  let uniqueItemCount = new Set(basket.map(item => item._id)).size;
+
 
   const toggleNavigation = () => {
     setIsOpen(!isOpen);
@@ -19,7 +30,8 @@ const Navigation = () => {
       </div>
       <div className={styles.navRight}>
         <div onClick={toggleNavigation}>{icons.FaBars}</div>
-        <div>
+        <div className={styles.basketDiv}>
+          <p className={styles.basketCount}>{uniqueItemCount}</p>
           <Link to={"/checkout"}>{icons.FaBasketShopping}</Link>
         </div>
       </div>
