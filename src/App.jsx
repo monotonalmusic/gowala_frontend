@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { useRoutes, Outlet } from "react-router-dom";
 // Common Pages.
 import HomePage from "./pages/home/HomePage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
@@ -7,67 +7,40 @@ import OmPage from "./pages/om/OmPage";
 import ServicesPage from "./pages/services/ServicesPage";
 import ShopPage from "./pages/shop/ShopPage";
 
-
 // Components
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import BackOffice from "./pages/backoffice/BackOffice";
+import ProductForm from "./components/ProductForm/ProductForm";
 
 
 // Application
 const App = () => {
-
   // Setting Up Routes
-  const routes = useRoutes(
-            [
+  const routes = useRoutes([
+    { path: "/", element: <HomePage /> },
+    { path: "/checkout", element: <CheckoutPage /> },
+    { path: "/kontakt", element: <KontaktPage /> },
+    { path: "/om", element: <OmPage /> },
+    { path: "/services", element: <ServicesPage /> },
+    { path: "/shop", element: <ShopPage /> },
+    {
+      path: "/backoffice",
+      element: <BackOffice />, // Uses Outlet to handle nested routes
+      children: [
+        { path: "products", element: <ProductForm /> }
+      ],
+    },
+    { path: "*", element: <div>NOT FOUND</div> },
+  ]);
 
-            {
-              path: "/",
-              element : <HomePage></HomePage>
-            },
-            {
-              path: "/checkout",
-              element : <CheckoutPage></CheckoutPage>
-            },
-            {
-              path: "/kontakt",
-              element : <KontaktPage></KontaktPage>
-            },
-            {
-              path: "/om",
-              element : <OmPage></OmPage>
-            },
-            {
-              path: "/services",
-              element : <ServicesPage></ServicesPage>
-            },
-            {
-              path: "/shop",
-              element : <ShopPage></ShopPage>
-            },
-            {
-              path: "/backoffice",
-              element : <BackOffice></BackOffice>
-            },
-            {
-              path: "*",
-              element : <div>NOT FOUND</div>
-            },
-
-          ]
-
-  );
-
-  return <>
+  return (
     <div>
-        <Navigation></Navigation>
-        <div>
-            {routes}
-        </div>
-        <Footer></Footer>
+      <Navigation />
+      <div>{routes}</div>
+      <Footer />
     </div>
-  </>;
-
-}
+  );
+};
 
 export default App;
