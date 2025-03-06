@@ -3,9 +3,20 @@
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
+    
+    
+}
+
+.backofficeArticle {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+
 }
 
 .addButton {
+    width: 150px;
   padding: 10px 15px;
   font-size: 16px;
   border: none;

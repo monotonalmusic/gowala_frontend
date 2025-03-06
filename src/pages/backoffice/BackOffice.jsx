@@ -7,7 +7,7 @@ const BackOffice = () => {
 
     return (
         <div className={styles.container}>
-            <article>
+            <article className={styles.backofficeArticle}>
             <button className={styles.addButton} onClick={() => navigate('/backoffice/products')}>Add Product</button>
             <Outlet />
                 <ProductList></ProductList>

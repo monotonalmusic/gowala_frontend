@@ -1,4 +1,4 @@
-import { useRoutes, Outlet } from "react-router-dom";
+import { useRoutes, useLocation } from "react-router-dom";
 // Common Pages.
 import HomePage from "./pages/home/HomePage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
@@ -13,9 +13,10 @@ import Footer from "./components/Footer/Footer";
 import BackOffice from "./pages/backoffice/BackOffice";
 import ProductForm from "./components/ProductForm/ProductForm";
 
-
-// Application
 const App = () => {
+  const location = useLocation();
+  const isBackOffice = location.pathname.startsWith("/backoffice");
+
   // Setting Up Routes
   const routes = useRoutes([
     { path: "/", element: <HomePage /> },
@@ -27,18 +28,16 @@ const App = () => {
     {
       path: "/backoffice",
       element: <BackOffice />, // Uses Outlet to handle nested routes
-      children: [
-        { path: "products", element: <ProductForm /> }
-      ],
+      children: [{ path: "products", element: <ProductForm /> }],
     },
     { path: "*", element: <div>NOT FOUND</div> },
   ]);
 
   return (
     <div>
-      <Navigation />
+      {!isBackOffice && <Navigation />}
       <div>{routes}</div>
-      <Footer />
+      {!isBackOffice && <Footer />}
     </div>
   );
 };
