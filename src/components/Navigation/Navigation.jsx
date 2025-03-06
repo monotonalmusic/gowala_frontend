@@ -13,13 +13,15 @@ const Navigation = () => {
   return (
     <div className={styles.navigation}>
       <div className={styles.navLeft}>
-          <Link to={"/"}>
-            <img src="/logo.png" alt="" />
-          </Link>
+        <Link to={"/"}>
+          <img src="/logo.png" alt="" />
+        </Link>
       </div>
       <div className={styles.navRight}>
         <div onClick={toggleNavigation}>{icons.FaBars}</div>
-        <div>{icons.FaBasketShopping}</div>
+        <div>
+          <Link to={"/checkout"}>{icons.FaBasketShopping}</Link>
+        </div>
       </div>
 
       <div className={`${styles.nav} ${isOpen ? styles.open : ""}`}>
