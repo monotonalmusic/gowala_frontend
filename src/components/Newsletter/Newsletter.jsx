@@ -4,7 +4,7 @@ const Newsletter = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h2 className={styles.title}><span className={styles.underline}>Nyhedsbrev</span></h2>
+        <h2 className={styles.title}>Nyhedsbrev</h2>
         <p className={styles.subtitle}>Få nyhederne fra gården på din mail.</p>
         <p className={styles.description}>
           Tilmeld dig vores nyhedsbrev - så kan du altid følge med i, hvad der sker på farmen.

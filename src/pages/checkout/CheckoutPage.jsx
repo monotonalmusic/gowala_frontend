@@ -1,8 +1,10 @@
+import Basket from "../../components/Basket/Basket";
 import styles from "./checkoutpage.module.css";
 
 const CheckoutPage = () => {
   return (
     <div className={styles.container}>
+      <Basket></Basket>
       <h1 className={styles.title}>Checkout</h1>
       <form className={styles.form}>
         <div className={styles.formGroup}>

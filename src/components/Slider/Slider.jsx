@@ -4,13 +4,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./slider.module.css";
 
-const Slider = ({ slides }) => {
+const Slider = ({ slides, slidesperview }) => {
   return (
     <div className={styles.sliderContainer}>
       <Swiper
         modules={[Navigation]}
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={slidesperview}
         navigation
         pagination={{ clickable: true }}
         className={styles.swiper}

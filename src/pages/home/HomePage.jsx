@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useAppContext } from '../../context/AppContext';
 import styles from './homepage.module.css';
 import Cards from '../../components/Cards/Cards';
 import Products from '../../components/Products/Products';
@@ -8,8 +7,6 @@ import Newsletter from '../../components/Newsletter/Newsletter';
 import Slider from '../../components/Slider/Slider';
 
 const HomePage = () => {
-
-    const { local } = useAppContext();
 
     const slidesHeroData = [
         { title: "Gowala Farms", image: "/headerslider/01.jpg" },
@@ -30,7 +27,7 @@ const HomePage = () => {
         <div>
             <div className={styles.frontContainer}>
                 <section className={styles.heroSlider}>
-                    <Slider slides={slidesHeroData}></Slider>
+                    <Slider slides={slidesHeroData} slidesperview={1}></Slider>
                 </section>
                 <section className={styles.frontCards}>
                     <Cards></Cards>
@@ -46,9 +43,8 @@ const HomePage = () => {
                     <Newsletter></Newsletter>
                 </section>
                 <section className={styles.frontAwards}>
-                    <h2 className={styles.title}>Our Sponsors</h2>
                     <div className={styles.sponsorSlider}>
-                        <Slider slides={slidesSponsorData}></Slider>
+                        <Slider slides={slidesSponsorData} slidesperview={2}></Slider>
                     </div>
                 </section>
                

@@ -30,16 +30,28 @@ const Navigation = () => {
           Home
         </NavLink>
         <NavLink
-          to={"/subscribers"}
+          to={"/kontakt"}
           className={({ isActive }) => (isActive ? styles.active : "")}
         >
-          Subscribers
+          Kontakt
         </NavLink>
         <NavLink
-          to={"/users"}
+          to={"/om"}
           className={({ isActive }) => (isActive ? styles.active : "")}
         >
-          Users
+          Om
+        </NavLink>
+        <NavLink
+          to={"/services"}
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Services
+        </NavLink>
+        <NavLink
+          to={"/shop"}
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Shop
         </NavLink>
       </div>
     </div>

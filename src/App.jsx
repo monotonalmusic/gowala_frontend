@@ -1,4 +1,5 @@
 import { useRoutes, useLocation } from "react-router-dom";
+import { BasketProvider } from "./context/AppContext";
 // Common Pages.
 import HomePage from "./pages/home/HomePage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
@@ -34,11 +35,13 @@ const App = () => {
   ]);
 
   return (
-    <div>
-      {!isBackOffice && <Navigation />}
-      <div>{routes}</div>
-      {!isBackOffice && <Footer />}
-    </div>
+    <BasketProvider>
+      <div>
+        {!isBackOffice && <Navigation />}
+        <div>{routes}</div>
+        {!isBackOffice && <Footer />}
+      </div>
+    </BasketProvider>
   );
 };
 
