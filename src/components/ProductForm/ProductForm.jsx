@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
 import styles from "./productform.module.css";
 
 const ProductForm = () => {
+  const navigate = useNavigate();
   const {
     createProduct,
     title,
@@ -33,6 +35,9 @@ const ProductForm = () => {
 
   return (
     <div className={styles.container}>
+      <button className={styles.closeButton} onClick={() => navigate("/backoffice")}>
+        &times;
+      </button>
       <h1 className={styles.heading}>Create New Product</h1>
       <form onSubmit={handleSubmission} className={styles.form}>
         <div className={styles.inputGroup}>

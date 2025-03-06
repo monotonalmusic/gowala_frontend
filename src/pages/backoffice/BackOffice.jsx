@@ -1,16 +1,18 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import ProductList from "../../components/ProductList/ProductList";
+import styles from "./backoffice.module.css";
 
 const BackOffice = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className={styles.container}>
             <article>
+            <button className={styles.addButton} onClick={() => navigate('/backoffice/products')}>Add Product</button>
+            <Outlet />
                 <ProductList></ProductList>
-                <button onClick={() => navigate('/backoffice/products')}>Enter Products</button>
-                <button onClick={() => navigate('/backoffice')}>Exit Products</button>
-                <Outlet />
+                
+                
             </article>
         </div>
     );

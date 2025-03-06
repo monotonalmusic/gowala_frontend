@@ -98,7 +98,7 @@ const ProductList = () => {
           products.map((product) => (
             <li key={product._id} className={styles.listItem}>
               <h2 className={styles.title}>{product.title}</h2>
-              <p className={styles.price}><strong>Price:</strong> ${product.price}</p>
+              <p className={styles.price}><strong>Price:</strong> {product.price}kr</p>
               <p className={styles.discount}><strong>Discount:</strong> {product.discount}%</p>
               <img
                 src={product.image}
