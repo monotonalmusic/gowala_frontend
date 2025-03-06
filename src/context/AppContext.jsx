@@ -27,12 +27,32 @@ export function BasketProvider({ children }) {
     setBasket((prev) => prev.filter((item) => item._id !== id));
   };
 
+  const incrementBasket = (id) => {
+    setBasket((prev) => {
+      const updatedBasket = [...prev];
+      const item = updatedBasket.find((item) => item._id === id);
+      if (item) {
+        item.quantity += 1;
+      }
+      return updatedBasket;
+    });
+  };
+
+  const decrementBasket = (id) => {
+    setBasket((prev) => {
+      const updatedBasket = prev.map((item) =>
+        item._id === id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
+      );
+      return updatedBasket.filter((item) => item.quantity > 0); // Remove items with quantity 0
+    });
+  };
+
   const clearBasket = () => {
     setBasket([]);
   };
 
   return (
-    <BasketContext.Provider value={{ basket, addToBasket, removeFromBasket, clearBasket }}>
+    <BasketContext.Provider value={{ basket, addToBasket, removeFromBasket, incrementBasket, decrementBasket, clearBasket }}>
       {children}
     </BasketContext.Provider>
   );
