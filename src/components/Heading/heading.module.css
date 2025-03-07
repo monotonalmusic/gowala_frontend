@@ -1,11 +1,11 @@
 .headingContainer {
+    width: 100%;
     height: 45vh;
     background-image: url("/public/page_header_01.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 30px;
-    border-radius: 10px;
 }
 
 .title {

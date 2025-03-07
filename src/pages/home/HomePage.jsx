@@ -9,7 +9,7 @@ import Slider from '../../components/Slider/Slider';
 const HomePage = () => {
 
     const slidesHeroData = [
-        { title: "Gowala Farms", image: "/headerslider/01.jpg" },
+        { title: "Gowala Farms", subtitle: "The complete dairy", button:"true", image: "/headerslider/01.jpg" },
         { title: "Fresh Dairy", image: "/headerslider/02.jpg" },
         { title: "Organic Produce", image: "/headerslider/03.jpg" },
         { title: "Quality Assurance", image: "/headerslider/04.jpg" },
@@ -27,7 +27,8 @@ const HomePage = () => {
         <div>
             <div className={styles.frontContainer}>
                 <section className={styles.heroSlider}>
-                    <Slider slides={slidesHeroData} slidesperview={1}></Slider>
+                    <Slider slides={slidesHeroData} slidesperview={1} >
+                    </Slider>
                 </section>
                 <section className={styles.frontCards}>
                     <Cards></Cards>

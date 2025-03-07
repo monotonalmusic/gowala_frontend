@@ -11,7 +11,7 @@ const Slider = ({ slides, slidesperview }) => {
         modules={[Navigation]}
         spaceBetween={50}
         slidesPerView={slidesperview}
-        navigation
+        navigation 
         pagination={{ clickable: true }}
         className={styles.swiper}
       >
@@ -19,7 +19,18 @@ const Slider = ({ slides, slidesperview }) => {
           <SwiperSlide key={index} className={styles.slide}>
             <div className={styles.slideContent}>
               <h2>{slide.title || ""}</h2>
-              <img src={slide.image} alt={slide.title} className={styles.slideImage} />
+              <h3>{slide.subtitle || ""}</h3>
+              {slide.button && (
+                <a href={slide.link} className={styles.button}>
+                  {slide.buttonText || "Read More"}
+                </a>
+              )}
+
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className={styles.slideImage}
+              />
             </div>
           </SwiperSlide>
         ))}

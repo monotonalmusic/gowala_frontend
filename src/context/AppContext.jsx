@@ -7,18 +7,20 @@ export function BasketProvider({ children }) {
   const [basket, setBasket] = useLocalStorage("basket", []);
 
   const addToBasket = (product) => {
+    //uses previous state of basket to update the basket
     setBasket((prev) => {
       const existingItemIndex = prev.findIndex((item) => item._id === product._id);
       if (existingItemIndex !== -1) {
         // If item exists, update quantity
         const updatedBasket = [...prev];
         updatedBasket[existingItemIndex] = {
+          //spreads existing product properties, then updates quantity
           ...updatedBasket[existingItemIndex],
           quantity: updatedBasket[existingItemIndex].quantity + 1,
         };
         return updatedBasket;
       }
-      // If item doesn't exist, add it with quantity 1
+      // If item doesn't exist, add the new product (...prev), and gives property of quantity: 1
       return [...prev, { ...product, quantity: 1 }];
     });
   };
@@ -41,6 +43,7 @@ export function BasketProvider({ children }) {
   const decrementBasket = (id) => {
     setBasket((prev) => {
       const updatedBasket = prev.map((item) =>
+      //math max ensures that quantity never goes below 0, returns original item if there is not a match of ID
         item._id === id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
       );
       return updatedBasket.filter((item) => item.quantity > 0); // Remove items with quantity 0
