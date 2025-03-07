@@ -1,9 +1,13 @@
 .pageContainer {
+  width: 100%;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
 }
+
+
+
 
 .kontaktContainer {
   background-color: #f5f8fb;
@@ -71,10 +75,23 @@ svg {
 }
 
 .hurtigContainer {
-  width: 80%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 20px;
   margin-top: 30px;
+
+}
+
+@media (min-width: 1023px) {
+  .pageContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hurtigContainer {
+    width: 55%;
+    margin-bottom: 50px;
+  }
 }

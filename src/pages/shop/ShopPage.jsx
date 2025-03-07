@@ -19,14 +19,15 @@ const ShopPage = () => {
             Her på siden finder du alle vores friske mejeriprodukter og
             kvalitetskød fra Gowala Farms – direkte fra gården til dit bord.
           </p>
+        </div>
+        <div className={styles.filterButtonDiv}>
           <button className={styles.filterButton} onClick={toggleSort}>
             {sortAlphabetically ? "Ingen sortering" : "A-Z"}
           </button>
         </div>
+
         <Products sortAlphabetically={sortAlphabetically} />
       </div>
-
-      
     </div>
   );
 };
