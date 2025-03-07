@@ -5,5 +5,12 @@
     _base.css -> are importing all base css files.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap');
+
+
 @import 'base/_variables.css';
 @import 'base/_base.css';
+
+body {
+    font-family: 'Frank Ruhl Libre', sans-serif;
+}
