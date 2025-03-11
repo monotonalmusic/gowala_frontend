@@ -12,8 +12,8 @@ const ProductForm = () => {
     setPrice,
     discount,
     setDiscount,
-    image,
-    setImage,
+    file,
+    setFile,
     error,
     success,
     setSuccess
@@ -30,7 +30,7 @@ const ProductForm = () => {
     setTitle("");
     setPrice("");
     setDiscount("");
-    setImage("");
+    setFile(null);
   };
 
   return (
@@ -83,15 +83,14 @@ const ProductForm = () => {
         </div>
 
         <div className={styles.inputGroup}>
-          <label htmlFor="image" className={styles.label}>
-            Image URL
+          <label htmlFor="file" className={styles.label}>
+            Image
           </label>
           <input
-            type="text"
-            id="image"
+            type="file"
+            id="file"
             className={styles.input}
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            onChange={(e) => setFile(e.target.files[0])} // Now using 'file'
             required
           />
         </div>

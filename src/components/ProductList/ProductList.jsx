@@ -15,8 +15,8 @@ const ProductList = () => {
     setPrice,
     discount,
     setDiscount,
-    image,
-    setImage,
+    file,
+    setFile,
     updateProduct,
     deleteProduct,
   } = useProduct();
@@ -43,7 +43,7 @@ const ProductList = () => {
     };
 
     fetchProducts();
-  }, [products]);
+  }, []);
 
   const handleEdit = (product) => {
     setEditMode(true);
@@ -51,7 +51,6 @@ const ProductList = () => {
     setTitle(product.title);
     setPrice(product.price);
     setDiscount(product.discount);
-    setImage(product.image);
   };
 
   const handleUpdate = async (e) => {
@@ -60,7 +59,6 @@ const ProductList = () => {
       await updateProduct(currentProduct._id, e);
       setEditMode(false);
       setCurrentProduct(null);
-      // Refresh product list
       const response = await fetch(`${backendURL}/products`, {
         method: "GET",
         headers: {
@@ -75,7 +73,6 @@ const ProductList = () => {
   const handleDelete = async (id) => {
     try {
       await deleteProduct(id);
-      // Refresh product list
       const response = await fetch(`${backendURL}/products`, {
         method: "GET",
         headers: {
@@ -101,7 +98,7 @@ const ProductList = () => {
               <p className={styles.price}><strong>Price:</strong> {product.price}kr</p>
               <p className={styles.discount}><strong>Discount:</strong> {product.discount}%</p>
               <img
-                src={product.image}
+                src={`${product.image}`}
                 alt={product.title}
                 className={styles.image}
               />
@@ -143,10 +140,8 @@ const ProductList = () => {
                     className={styles.input}
                   />
                   <input
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    placeholder="Image URL"
+                    type="file"
+                    onChange={(e) => setFile(e.target.files[0])}
                     className={styles.input}
                   />
                   <button type="submit" className={styles.button}>Update Product</button>

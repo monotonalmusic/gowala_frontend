@@ -5,7 +5,7 @@ const useProduct = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
-  const [image, setImage] = useState("");
+  const [file, setFile] = useState(null); // Renaming to 'file' to match backend
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -14,25 +14,21 @@ const useProduct = () => {
     setError("");
     setSuccess(false);
 
-    if (!image) {
+    if (!file) {
       setError("Image is required.");
       return;
     }
 
-    const payload = {
-      title,
-      price,
-      discount,
-      image,
-    };
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("price", price);
+    formData.append("discount", discount);
+    formData.append("file", file); // Ensuring it matches backend
 
     try {
       const response = await fetch(`${backendURL}/product/`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -51,18 +47,19 @@ const useProduct = () => {
     setError("");
     setSuccess(false);
 
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("title", title);
+    formData.append("price", price);
+    formData.append("discount", discount);
+    if (file) {
+      formData.append("file", file); // Ensuring it matches backend
+    }
+
     try {
-      const response = await fetch(`${backendURL}/product/${id}/`, {
+      const response = await fetch(`${backendURL}/product/`, { // Sending ID in body, not URL
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          price,
-          discount,
-          image,
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -76,44 +73,20 @@ const useProduct = () => {
     }
   };
 
-  const deleteProduct = async (id) => {
-    setError("");
-    setSuccess(false);
-
-    try {
-      const response = await fetch(`${backendURL}/product/${id}/`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to delete product.");
-      }
-
-      setSuccess(true);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
   return {
     createProduct,
     updateProduct,
-    deleteProduct,
     title,
     setTitle,
     price,
     setPrice,
     discount,
     setDiscount,
-    image,
-    setImage,
+    file,
+    setFile,
     error,
     success,
-    setSuccess
+    setSuccess,
   };
 };
 
