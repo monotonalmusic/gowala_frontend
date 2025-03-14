@@ -73,9 +73,30 @@ const useProduct = () => {
     }
   };
 
+  const deleteProduct = async (id) => {
+    setError("");
+    setSuccess(false);
+
+    try {
+      const response = await fetch(`${backendURL}/product/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to delete product.");
+      }
+
+      setSuccess(true);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return {
     createProduct,
     updateProduct,
+    deleteProduct,
     title,
     setTitle,
     price,
